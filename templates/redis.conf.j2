@@ -12,6 +12,7 @@ unixsocket {{ redis_unixsocket }}
 requirepass {{ redis_requirepass }}
 {% endif %}
 
+tcp-backlog {{ redis_tcp_backlog }}
 bind {{ redis_bind }}
 timeout {{ redis_timeout }}
 tcp-keepalive {{ redis_tcp_keepalive }}
