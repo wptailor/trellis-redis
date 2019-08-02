@@ -58,3 +58,6 @@ redis_client_output_buffer_limit:
 
 redis_hz: 10
 redis_aof_rewrite_incremental_fsync: 'yes'
+
+# Users with access to UNIX socket
+redis_socket_users: []

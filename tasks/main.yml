@@ -20,6 +20,14 @@
     mode: 0640
   notify: Restart Redis
 
+- name: Add web user to redis group
+  user:
+    name: "{{ item }}"
+    groups: redis
+    append: yes
+  when: redis_unixsocket != ""
+  with_items: "{{ redis_socket_users }}"
+
 - name: Set Redis to Run on Boot
   service:
     name: redis-server

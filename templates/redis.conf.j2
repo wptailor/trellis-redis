@@ -2,10 +2,11 @@
 
 daemonize {{ redis_daemonize }}
 pidfile {{ redis_pidfile }}
-port {{ redis_port }}
+port {{ redis_port if not redis_unixsocket else "0" }}
 
 {% if redis_unixsocket %}
 unixsocket {{ redis_unixsocket }}
+unixsocketperm 770
 {% endif %}
 
 {% if redis_requirepass %}
